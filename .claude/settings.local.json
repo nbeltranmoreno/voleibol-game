@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(node --version:*)",
+      "Bash(powershell.exe -Command \"node --version\")",
+      "Bash(git init:*)",
+      "Bash(curl:*)",
+      "Bash(bash)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\")",
+      "Bash([ -s \"$NVM_DIR/nvm.sh\" ])",
+      "Bash(. \"$NVM_DIR/nvm.sh\")",
+      "Bash(nvm install:*)",
+      "Bash(npm --version)",
+      "Bash(source ~/.bashrc)",
+      "Bash(npm:*)",
+      "Bash(ls:*)",
+      "Bash(nvm:*)",
+      "Bash(echo:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
