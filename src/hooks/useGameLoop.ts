@@ -7,7 +7,6 @@ import {
   FIELD_RIGHT,
   FIELD_TOP,
   NET_TOP,
-  NET_HEIGHT,
   JUMP_HEIGHT,
   COOLDOWN_TIME,
   DIVE_COOLDOWN,
@@ -32,7 +31,6 @@ interface UseGameLoopProps {
   setBall: React.Dispatch<React.SetStateAction<Ball>>;
   setScore: React.Dispatch<React.SetStateAction<{ p1: number; p2: number }>>;
   setWinner: React.Dispatch<React.SetStateAction<string | null>>;
-  setLastScorer: React.Dispatch<React.SetStateAction<number | null>>;
   addEffect: (x: number, y: number, type: Effect['type']) => void;
 }
 
@@ -52,7 +50,6 @@ export const useGameLoop = ({
   setBall,
   setScore,
   setWinner,
-  setLastScorer,
   addEffect
 }: UseGameLoopProps) => {
   const ballRef = useRef(ball);
@@ -313,14 +310,12 @@ export const useGameLoop = ({
                 setWinner(gameMode === '2players' ? 'Jugador 2' : 'CPU');
               return ns;
             });
-            setLastScorer(2);
           } else if (x > FIELD_RIGHT || (y > GROUND + 10 && x > NET_X)) {
             setScore((s) => {
               const ns = { ...s, p1: s.p1 + 1 };
               if (ns.p1 >= WINNING_SCORE) setWinner('Jugador 1');
               return ns;
             });
-            setLastScorer(1);
           }
           const toRight = x <= NET_X || x < FIELD_LEFT;
           return { x: NET_X, y: 80, vx: toRight ? 2 : -2, vy: 0.5 };
@@ -347,7 +342,6 @@ export const useGameLoop = ({
     setBall,
     setScore,
     setWinner,
-    setLastScorer,
     addEffect
   ]);
 };

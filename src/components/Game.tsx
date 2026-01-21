@@ -41,7 +41,6 @@ export default function Game() {
   const [keys, setKeys] = useState<Keys>({});
   const [effects, setEffects] = useState<Effect[]>([]);
   const [paused, setPaused] = useState(false);
-  const [lastScorer, setLastScorer] = useState<number | null>(null);
 
   const addEffect = useCallback((x: number, y: number, type: Effect['type']) => {
     const id = Date.now() + Math.random();
@@ -89,7 +88,6 @@ export default function Game() {
     setBall,
     setScore,
     setWinner,
-    setLastScorer,
     addEffect
   });
 
@@ -121,7 +119,6 @@ export default function Game() {
     });
     setShowLevelScreen(false);
     setShowCpuSelect(false);
-    setLastScorer(null);
   };
 
   const startStoryMode = (newGame: boolean) => {
